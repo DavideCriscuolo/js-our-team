@@ -41,6 +41,7 @@ const teamMembers = [
 ];
 
 const rowEl = document.querySelector(".row");
+const formEl = document.querySelector("form");
 
 function addClasses(tag, ...classes) {
   console.log(tag);
@@ -94,3 +95,15 @@ for (let i = 0; i < teamMembers.length; i++) {
     }
   }
 }
+
+// Aggiungere un form di agginta membri che permetta di visualizzare il nuovo membro sulla pagina
+// devo fare un array vuoto, prendere i valori dell input e psuharli nell array , prendere i valori dell'array e salvarli in una variabile, prendere le varibili e creare un nuovo ogetto da pushare all'interno teamMembers
+
+inputArray = [];
+const btnAddEl = document.getElementById("btnAdd");
+
+btnAddEl.addEventListener("click", function () {
+  formEl.classList.remove("d-none");
+  formEl.classList.add("d-block");
+  console.log("object");
+});
