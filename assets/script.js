@@ -6,36 +6,66 @@ const teamMembers = [
     name: "Marco Bianchi",
     role: "Designer",
     email: "marcobianchi@team.com",
-    img: "img/male1.png",
+    img: "./assets/img/male1.png",
   },
   {
     name: "Laura Rossi",
     role: "Front-end Developer",
     email: "laurarossi@team.com",
-    img: "img/female1.png",
+    img: "./assets/img/female1.png",
   },
   {
     name: "Giorgio Verdi",
     role: "Back-end Developer",
     email: "giorgioverdi@team.com",
-    img: "img/male2.png",
+    img: "./assets/img/male2.png",
   },
   {
     name: "Marta Ipsum",
     role: "SEO Specialist",
     email: "martarossi@team.com",
-    img: "img/female2.png",
+    img: "./assets/img/female2.png",
   },
   {
     name: "Roberto Lorem",
     role: "SEO Specialist",
     email: "robertolorem@team.com",
-    img: "img/male3.png",
+    img: "./assets/img/male3.png",
   },
   {
     name: "Daniela Amet",
     role: "Analyst",
     email: "danielaamet@team.com",
-    img: "img/female3.png",
+    img: "./assets/img/female3.png",
   },
 ];
+
+const rowEl = document.querySelector(".row");
+
+function addClasses(tag, ...classes) {
+  tag.classList.add(...classes);
+}
+
+for (let i = 0; i < teamMembers.length; i++) {
+  const member = teamMembers[i];
+  console.log(member);
+  const { name, role, email, img } = member;
+  console.log(name, role, email, img);
+
+  const divEl = document.createElement("div");
+  console.log(divEl);
+  addClasses(divEl, "col");
+  addClasses(rowEl, "row-cols-1", "row-cols-sm-3", "row-cols-md-3");
+
+  const markup = `<div class="card">
+ <div class="title_card">
+${name}
+ </div>
+<div class="card-img"><img src="${img}" alt=""></div>
+<div id="cardbd"class="card-body">${role}<div>${email}</div></div>
+</div>`;
+  divEl.innerHTML = markup;
+  rowEl.appendChild(divEl);
+  const cardEl = document.querySelector(".card");
+  addClasses(cardEl, "d-flex");
+}
