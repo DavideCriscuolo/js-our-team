@@ -43,6 +43,7 @@ const teamMembers = [
 const rowEl = document.querySelector(".row");
 
 function addClasses(tag, ...classes) {
+  console.log(tag);
   tag.classList.add(...classes);
 }
 
@@ -55,18 +56,24 @@ for (let i = 0; i < teamMembers.length; i++) {
   const divEl = document.createElement("div");
   console.log(divEl);
   addClasses(divEl, "col");
-  addClasses(rowEl, "row-cols-1", "row-cols-sm-3", "row-cols-md-3");
+  addClasses(
+    rowEl,
+    "row-cols-1",
+    "row-cols-md-1",
+    "row-cols-lg-2",
+    "row-cols-xxl-3"
+  );
 
-  const markup = ` <div class="card d-flex flex-row">
+  const markup = ` <div class="col card d-flex flex-row">
                 <div class="upcard">
                     <div class="card-img"><img clas="img-fluid" src="${img}" alt=""></div>
                 </div>
-                <div class="dowcard">
-                    <div class="title_card">
+                <div class="dowcard card-body">
+                    <div class="title_card text-white">
                         <h1>
-                            ${name}</h1>
+                            ${name.toUpperCase()}</h1>
                     </div>
-                    <div id="cardbd" class="card-body ">
+                    <div class="desc text-white">
                         <h4>${role}</h4>
                         <email>${email}</email>
                     </div>
@@ -74,6 +81,16 @@ for (let i = 0; i < teamMembers.length; i++) {
             </div>`;
   divEl.innerHTML = markup;
   rowEl.appendChild(divEl);
-  // const cardEl = document.querySelectorAll(".card");
-  // addClasses(cardEl, "m-3");
+  const cardEls = document.querySelectorAll(".card");
+
+  console.log(cardEls[0].classList);
+  console.log(cardEls);
+
+  for (const key in cardEls) {
+    const cardEl = cardEls[key];
+    if (cardEl.classList) {
+      console.log(cardEl);
+      addClasses(cardEl, "m-3");
+    }
+  }
 }
