@@ -49,8 +49,8 @@ function addClasses(tag, ...classes) {
 }
 
 function createCard(array) {
-  for (let i = 0; i < teamMembers.length; i++) {
-    const member = teamMembers[i];
+  for (let i = 0; i < array.length; i++) {
+    const member = array[i];
     console.log(member);
     const { name, role, email, img } = member;
     console.log(name, role, email, img);
@@ -113,6 +113,8 @@ btnAddEl.addEventListener("click", function () {
 
 formEl.addEventListener("submit", function (e) {
   e.preventDefault();
+  rowEl.innerHTML = "";
+
   inputArray.push(
     inputNameValue.value,
     inputRoleValue.value,
