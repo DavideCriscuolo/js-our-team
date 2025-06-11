@@ -57,15 +57,21 @@ for (let i = 0; i < teamMembers.length; i++) {
   addClasses(divEl, "col");
   addClasses(rowEl, "row-cols-1", "row-cols-sm-3", "row-cols-md-3");
 
-  const markup = `<div class="card">
- <div class="title_card">
-${name}
- </div>
-<div class="card-img"><img src="${img}" alt=""></div>
-<div id="cardbd"class="card-body">${role}<div>${email}</div></div>
-</div>`;
+  const markup = ` <div class="card d-flex  flex-row">
+                <div class="upcard">
+                    <div class="card-img"><img clas="img-fluid" src="${img}" alt=""></div>
+                </div>
+                <div class="dowcard">
+                    <div class="title_card">
+                        <h1>
+                            ${name}</h1>
+                    </div>
+                    <div id="cardbd" class="card-body ">
+                        <h4>${role}</h4>
+                        <email>${email}</email>
+                    </div>
+                </div>
+            </div>`;
   divEl.innerHTML = markup;
   rowEl.appendChild(divEl);
-  const cardEl = document.querySelector(".card");
-  addClasses(cardEl, "d-flex");
 }
